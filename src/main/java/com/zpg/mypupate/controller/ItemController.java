@@ -89,6 +89,7 @@ public class ItemController {
 		if (item == null) {
 			return ResponseEntity.notFound().build();
 		}
+		item.getItemDetail().setHits(item.getItemDetail().getHits() + 1);
 		return ResponseEntity.ok().body(item);
 	}
 	@JsonView(View.ItemWithDetails.class)
